@@ -14,7 +14,7 @@ public class AopIsAwesomeHeaderAspect {
     public void checkAopIsAwesomeHeader(JoinPoint joinPoint, HttpServletRequest request) {
         if (request.getMethod().equals("POST")) {
             String headerValue = request.getHeader("AOP-IS-AWESOME");
-            if (headerValue == null || !headerValue.equals("true")) {
+            if (headerValue == null || !"true".equals(headerValue)) {
                 throw new AopIsAwesomeHeaderException("AOP-IS-AWESOME header is missing or not set to 'true'");
             }
         }
